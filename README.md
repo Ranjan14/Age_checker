@@ -1,3 +1,0 @@
-# Age_checker
-Here is a code to check your age...
-
