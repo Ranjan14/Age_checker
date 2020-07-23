@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agechecker</title>
+</head>
+<Script>
+    function fn1() 
+    {
+    var birth_date =   Number(document.getElementById("text").value);
+     var birth_month = Number(document.getElementById("text1").value);
+     var birth_year = Number(document.getElementById("text2").value);
+     var current_date = Number(document.getElementById("text3").value);
+     var current_month = Number(document.getElementById("text4").value);
+     var current_year = Number(document.getElementById("text5").value);
+     
+     //console.log(current_date);
+     //console.log(current_month);
+     //console.log(current_year);
+     //console.log(birth_date);
+     //console.log(birth_month);
+     //console.log(birth_year);  
+    
+     var month =[31,28,31,30,31,30,31,31,30,31,30,31];
+    if (birth_date > current_date)
+    {
+        current_date =  month[birth_month-1] + current_date;
+        current_month = current_month-1; 
+        
+    }
+    if (birth_month > current_month)
+    {
+        current_year=current_year-1;
+        current_month=current_month+12;
+
+    }
+    var calculated_date= current_date-birth_date;
+    var calculated_month = current_month-birth_month;
+    var calculated_year = current_year-birth_year;
+    document.getElementById("demo").innerHTML= calculated_date;
+    document.getElementById("demo1").innerHTML= calculated_month;
+    document.getElementById("demo2").innerHTML= calculated_year;
+    }
+</Script>
+<style>
+   body{
+       background-color: rgb(235, 229, 229);
+       zoom: 200%;
+   }
+#container{
+    
+    text-align:center;
+}
+
+#num1
+{
+    text-align: center;
+    
+}
+
+#num
+{
+    text-align: center;
+}
+#num2
+{
+    text-align: center;
+}
+
+</style>
+<body>
+    <div id = num1><h3>The day of birth</h3>
+       
+        <input id = "text" placeholder="Enter the date" >
+        <input id = "text1"  placeholder="Enter the month" >
+        <input id = "text2" placeholder="Enter the year" >
+    </div>
+    
+    <div id = num> <h3>The present day (or anyday whether if you want to check .)</h3>
+             
+        <input id = "text3" placeholder="Enter the date" >
+        <input id = "text4" placeholder="Enter the month" >
+        <input id = "text5" placeholder="Enter the year" >
+
+    </div>
+    <div id="container">
+        <br>
+        <button onclick="fn1()">submit</button>
+    </div>
+    
+    <div id=num2>
+    <h3>Your age is</h3>
+   
+    <output  id="demo2" > </output>
+    <label>years,</label>
+    <output id="demo1"></output>
+    <label> months,</label>
+    <output id="demo"></output>
+    <label> days.</label>
+    </div>
+</body>
+</html>
